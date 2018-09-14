@@ -13,3 +13,5 @@ fi
 DOCKER_IMG=sanguohot/cgo:${TAG}
 docker build -t ${DOCKER_IMG} ./${TAG}/
 docker push ${DOCKER_IMG}
+docker images|grep none|awk '{print $3 }'|xargs docker rmi
+docker rmi ${DOCKER_IMG}
